@@ -1,0 +1,38 @@
+% ============================================================
+% Appendix
+% ============================================================
+
+\clearpage
+\appendix
+\singlespacing
+
+% Appendix numbering
+\renewcommand{\thepage}{A\arabic{page}}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+% Reset counters
+\setcounter{page}{1}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{footnote}{0}
+
+\begin{center}
+{\bf \LARGE Supplementary Materials} \\
+\vspace{0.2in}
+{\Large \tit}
+\end{center}
+
+\thispagestyle{empty}
+
+% Add an "Appendix" entry to the main ToC (if you are using a main ToC)
+\addcontentsline{toc}{section}{Appendix}
+
+% ----------------------------
+% Appendix sections
+% ----------------------------
+\clearpage
+\input{appendix/appendix_design}
+
+\clearpage
+\input{appendix/appendix_results}

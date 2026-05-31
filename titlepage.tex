@@ -1,0 +1,79 @@
+% ============================================================
+% Title Page and Abstract
+% ============================================================
+
+% ----------------------------
+% Project-level metadata
+% ----------------------------
+
+\newcommand{\tit}{To be written}
+\newcommand{\da}{Month xx, 20xx} % Manually update
+\newcommand{\wordcount}{xxxx}
+
+% ----------------------------
+% Title page
+% ----------------------------
+
+\pagenumbering{roman}
+
+\if0\blind
+\title{
+  \tit
+  \thanks{Prepared for presentation at [Conference Name].}
+}
+
+\author{
+  First Name Last Name%
+  \thanks{Title, Department, University.
+  Email: \texttt{xxx@xxx.xxx}. ORCID: xxxx-xxxx-xxxx-xxxx}
+  \and
+  Yusaku Horiuchi%
+  \thanks{Syde P.\ Deeb Eminent Scholar Chair in Political Science at Florida State University, and Professor in the Faculty of Political Science and Economics at Waseda University. Email: \texttt{yusaku.horiuchi@fsu.edu} ORCID: 0000-0003-0295-4089}
+}
+
+\date{\da}
+\maketitle
+\fi
+
+\if1\blind
+\title{\tit}
+\author{Word Count: \wordcount}
+\date{}
+\maketitle
+\fi
+
+\thispagestyle{empty}
+
+% ----------------------------
+% Blank page after title (non-blind only)
+% ----------------------------
+
+\if0\blind
+\newpage
+\thispagestyle{empty}
+\fi
+
+% ----------------------------
+% Abstract
+% ----------------------------
+
+\begin{abstract}
+\noindent
+
+% Abstract text goes here
+
+\if0\blind
+\vspace{0.2in}
+
+\noindent\textit{\textbf{Keywords:}} To be written \\
+\noindent\textit{\textbf{Word Count:}} \wordcount
+\fi
+
+\end{abstract}
+
+% ----------------------------
+% Reset page numbering
+% ----------------------------
+
+\newpage
+\pagenumbering{arabic}

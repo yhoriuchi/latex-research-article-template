@@ -1,0 +1,36 @@
+% ============================================================
+% Main file (compile this)
+% ============================================================
+
+\documentclass[12pt]{article}
+
+\input{preamble}
+
+\begin{document}
+\input{titlepage}
+
+% ----------------------------
+% Main text
+% ----------------------------
+
+\input{sections/01-introduction}
+\input{sections/02-theory}
+\input{sections/03-design}
+\input{sections/04-results}
+\input{sections/05-conclusion}
+
+% ----------------------------
+% References
+% ----------------------------
+
+\newpage
+\bibliographystyle{bibfiles/apsa-leeper}
+\bibliography{bibfiles/main}
+
+% ----------------------------
+% Appendix
+% ----------------------------
+
+\input{appendix/appendix}
+
+\end{document}

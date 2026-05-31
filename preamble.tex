@@ -1,0 +1,127 @@
+% ============================================================
+% Preamble
+% Packages, formatting, and global macros
+% ============================================================
+
+% ----------------------------
+% Blind review switch
+% 0 = not blind, 1 = blind
+% ----------------------------
+\newcommand{\blind}{0}
+
+% ----------------------------
+% Encoding and Fonts
+% ----------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% ----------------------------
+% Color (for links, tables, highlighting)
+% ----------------------------
+\usepackage[dvipsnames,table]{xcolor}
+
+% ----------------------------
+% Page Layout
+% ----------------------------
+\usepackage[
+  top=1in,
+  bottom=1in,
+  inner=1in,
+  outer=1in
+]{geometry}
+
+% ----------------------------
+% Spacing
+% ----------------------------
+\usepackage{setspace}
+% Choose ONE: either \doublespacing or \setstretch{...}
+% \doublespacing
+\setstretch{1.67}
+
+% Footnotes
+\usepackage{footmisc}
+\renewcommand{\footnotelayout}{\setstretch{1.67}}
+\addtolength{\footnotesep}{6pt}
+
+% Optional: force larger footnote font
+\makeatletter
+\renewcommand\footnotesize{%
+   \@setfontsize\footnotesize{12pt}{14pt}%
+}
+\makeatother
+
+% ----------------------------
+% Mathematics and Symbols
+% ----------------------------
+\usepackage{amsmath, amssymb}
+
+% ----------------------------
+% Figures and Tables
+% ----------------------------
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{pdflscape}
+
+% Flush left/right in merged figures / tables
+\usepackage{ragged2e}
+
+% siunitx columns (modelsummary and numeric alignment)
+\usepackage{siunitx}
+\newcolumntype{d}{S[input-symbols = ()]}
+
+% tabularray (modelsummary tables, modern table features)
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{siunitx}
+
+% Underline/strikeout helpers sometimes used by table exporters
+\usepackage[normalem]{ulem}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+
+% ----------------------------
+% Lists
+% ----------------------------
+\usepackage{enumitem}
+
+% ----------------------------
+% Citations and References
+% ----------------------------
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+% Custom citation helper
+\newcommand\cites[1]{\citeauthor{#1}'s\ (\citeyear{#1})}
+
+% ----------------------------
+% Hyperlinks
+% ----------------------------
+% For drafting (colored links):
+\usepackage{hyperref}
+
+% For submission (black links / no colors), comment out above and use:
+% \usepackage[draft]{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% Prevent long URLs from running off the page
+\usepackage{xurl}
+
+% ----------------------------
+% Environments
+% ----------------------------
+\newtheorem{hypo}{Hypothesis}

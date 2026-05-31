@@ -1,0 +1,25 @@
+.DS_Store
+
+# LaTeX generated files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc*
+*.out
+*.ptc*
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Local build output
+/build/
+/main.pdf
+
