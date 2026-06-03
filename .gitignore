@@ -2,6 +2,7 @@
 
 # LaTeX generated files
 *.aux
+*.apc
 *.bbl
 *.bcf
 *.blg

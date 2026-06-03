@@ -28,6 +28,24 @@
 % Add an "Appendix" entry to the main ToC (if you are using a main ToC)
 \addcontentsline{toc}{section}{Appendix}
 
+% Appendix-only table of contents
+\section*{Appendix Contents}
+\makeatletter
+\@starttoc{apc}
+
+\let\appendixoldsection\section
+\renewcommand{\section}{%
+  \@ifstar{\appendixstarsection}{\@dblarg\appendixsection}%
+}
+\newcommand{\appendixsection}[2][]{%
+  \appendixoldsection[#1]{#2}%
+  \addcontentsline{apc}{section}{\protect\numberline{\thesection}#1}%
+}
+\newcommand{\appendixstarsection}[1]{%
+  \appendixoldsection*{#1}%
+}
+\makeatother
+
 % ----------------------------
 % Appendix sections
 % ----------------------------

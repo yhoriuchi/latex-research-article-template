@@ -34,7 +34,8 @@ latexmk -c main.tex
 - Set `\blind` in `preamble.tex` to `1` for a blind version.
 - Update title, date, abstract, and keywords in `titlepage.tex`.
 - Add manuscript sections in `sections/` and include them from `main.tex`.
-- Add appendix sections in `appendix/appendix.tex`.
+- Add appendix sections in `appendix/appendix.tex`; the appendix-only table of
+  contents updates automatically after recompiling.
 - For each figure, keep the PDF and TeX snippet stems aligned, for example
   `figures/example.pdf` and `figures/example.tex`.
 - Add references to `bibfiles/main.bib` and cite them with `natbib` commands
