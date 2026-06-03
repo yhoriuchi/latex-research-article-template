@@ -36,6 +36,8 @@ latexmk -c main.tex
 - Add manuscript sections in `sections/` and include them from `main.tex`.
 - Add appendix sections in `appendix/appendix.tex`; the appendix-only table of
   contents updates automatically after recompiling.
+- Use `\citetappendix{...}` and `\citepappendix{...}` for citations that should
+  appear in the separate appendix bibliography.
 - For each figure, keep the PDF and TeX snippet stems aligned, for example
   `figures/example.pdf` and `figures/example.tex`.
 - Add references to `bibfiles/main.bib` and cite them with `natbib` commands

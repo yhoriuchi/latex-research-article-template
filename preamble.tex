@@ -99,6 +99,10 @@
 \usepackage{natbib}
 \bibpunct{(}{)}{;}{a}{}{,}
 
+% Separate bibliography for appendix citations.
+\usepackage{multibib}
+\newcites{appendix}{References}
+
 % Custom citation helper
 \newcommand\cites[1]{\citeauthor{#1}'s\ (\citeyear{#1})}
 
