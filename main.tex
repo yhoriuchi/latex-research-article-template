@@ -7,7 +7,9 @@
 \input{preamble}
 
 \begin{document}
+%TC:ignore
 \input{titlepage}
+%TC:endignore
 
 % ----------------------------
 % Main text
@@ -23,14 +25,18 @@
 % References
 % ----------------------------
 
+%TC:ignore
 \newpage
 \bibliographystyle{bibfiles/apsa-leeper}
 \bibliography{bibfiles/main}
+%TC:endignore
 
 % ----------------------------
 % Appendix
 % ----------------------------
 
+%TC:ignore
 \input{appendix/appendix}
+%TC:endignore
 
 \end{document}

@@ -32,13 +32,22 @@ latexmk -c main.tex
 ## Common Edits
 
 - Set `\blind` in `preamble.tex` to `1` for a blind version.
-- Update title, date, word count, abstract, and keywords in `titlepage.tex`.
+- Update title, date, abstract, and keywords in `titlepage.tex`.
 - Add manuscript sections in `sections/` and include them from `main.tex`.
 - Add appendix sections in `appendix/appendix.tex`.
 - For each figure, keep the PDF and TeX snippet stems aligned, for example
   `figures/example.pdf` and `figures/example.tex`.
 - Add references to `bibfiles/main.bib` and cite them with `natbib` commands
   such as `\citet{...}` and `\citep{...}`.
+
+## Word Count
+
+The word count is generated automatically by `latexmk` using `texcount`.
+It is written to `wordcount.tex`, which is ignored by git and read by
+`titlepage.tex`.
+
+By default, TeXcount ignores the title page, references, and appendix using
+`%TC:ignore` blocks in `main.tex`.
 
 ## Notes
 
