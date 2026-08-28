@@ -12,6 +12,7 @@ This repository is Yusaku Horiuchi's reusable LaTeX template for research articl
 - Keep the title page, main sections, references, and supplementary materials in their existing modular files.
 - Preserve the manuscript's current citation and bibliography configuration unless the user explicitly requests a change.
 - Generate the word count automatically with TeXcount through `latexmkrc`.
+- Use pdfLaTeX for the supplied automatic word-count workflow because `latexmkrc` attaches TeXcount to the `$pdflatex` rule. On Overleaf, confirm **Menu → Settings → Compiler → pdfLaTeX**. If an existing project must retain LuaLaTeX or XeLaTeX, add the equivalent TeXcount hook to that compiler's `latexmkrc` rule instead of silently switching engines.
 - Exclude the title page, references, and appendix from the reported word count using the existing `%TC:ignore` blocks in `main.tex`.
 - Use a separate appendix bibliography through the existing `multibib` configuration.
 - Keep supplementary materials single-spaced, including appendix footnotes.

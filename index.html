@@ -103,11 +103,13 @@
 
       <pre><code>latexmk -c main.tex</code></pre>
 
-      <p>On Overleaf, set <code>main.tex</code> as the main document and compile normally.</p>
+      <p>On Overleaf, set <code>main.tex</code> as the main document and select <strong>pdfLaTeX</strong> under <strong>Menu → Settings → Compiler</strong>. The supplied <code>latexmkrc</code> attaches automatic TeXcount generation to its <code>$pdflatex</code> rule.</p>
 
       <h2>Automatic Word Count</h2>
 
       <p>Before each local PDF build, <code>latexmkrc</code> runs TeXcount and writes the result to <code>wordcount.tex</code>. The title page displays that value automatically.</p>
+
+      <blockquote><p><strong>Compiler requirement:</strong> With the supplied <code>latexmkrc</code> unchanged, automatic word-count regeneration requires pdfLaTeX. If Overleaf is set to LuaLaTeX or XeLaTeX, <code>wordcount.tex</code> will not update because the TeXcount command is attached only to the pdfLaTeX rule.</p></blockquote>
 
       <p>The reported count excludes:</p>
       <ul>
@@ -116,6 +118,8 @@
         <li>all supplementary materials, including the appendix bibliography.</li>
       </ul>
       <p>The exclusion boundaries are already marked in <code>main.tex</code>, so no manual recount is required after ordinary edits.</p>
+
+      <p>If an existing manuscript must use LuaLaTeX or XeLaTeX, preserve that compiler and add the equivalent TeXcount hook to its <code>latexmkrc</code> rule. Then confirm that an ordinary build regenerates <code>wordcount.tex</code>. Do not change compilers merely to obtain the word count when the manuscript depends on engine-specific fonts or packages.</p>
 
       <h2>Figures and Tables</h2>
 

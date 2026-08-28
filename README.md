@@ -19,6 +19,11 @@ Compile `main.tex`.
 latexmk main.tex
 ```
 
+On Overleaf, select **pdfLaTeX** under **Menu → Settings → Compiler**. The
+supplied `latexmkrc` attaches automatic TeXcount generation to the `pdflatex`
+rule. If a project must use LuaLaTeX or XeLaTeX, preserve that compiler and add
+an equivalent TeXcount hook to its corresponding `latexmkrc` rule.
+
 To clean generated files:
 
 ```sh
@@ -58,6 +63,11 @@ It is written to `wordcount.tex`, which is ignored by git and read by
 
 By default, TeXcount ignores the title page, references, and appendix using
 `%TC:ignore` blocks in `main.tex`.
+
+With the supplied `latexmkrc` unchanged, `wordcount.tex` is regenerated only
+when pdfLaTeX runs. Selecting LuaLaTeX or XeLaTeX in Overleaf without adding a
+matching compiler rule leaves the word count stale or displays the `N/A`
+fallback.
 
 ## Notes
 

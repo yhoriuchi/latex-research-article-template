@@ -65,6 +65,8 @@ Inspect the entire existing LaTeX/Overleaf project before making changes. Apply 
 ## Word count and blind review
 
 - Preserve any working word-count method. If none exists and the environment supports it, add automatic TeXcount generation through `latexmkrc` and exclude the title page, references, and appendix with explicit `%TC:ignore` blocks.
+- The reference template runs TeXcount through the `$pdflatex` rule in `latexmkrc`. Therefore, automatic word-count regeneration requires **pdfLaTeX** as the selected Overleaf compiler when using that file unchanged. Confirm the compiler under **Menu → Settings → Compiler → pdfLaTeX**.
+- Do not silently switch an existing project away from LuaLaTeX or XeLaTeX when it depends on that engine. Instead, preserve the required engine and add the equivalent TeXcount command to the corresponding `$lualatex` or `$xelatex` rule, then verify that `wordcount.tex` is regenerated during an ordinary build.
 - Preserve or add a simple blind-review switch when useful, but do not expose identifying information in a blind build.
 
 ## Verification
