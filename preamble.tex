@@ -14,6 +14,7 @@
 % ----------------------------
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{microtype}
 
 % ----------------------------
 % Color (for links, tables, highlighting)
@@ -54,6 +55,7 @@
 % Mathematics and Symbols
 % ----------------------------
 \usepackage{amsmath, amssymb}
+\usepackage{chngcntr}
 
 % ----------------------------
 % Figures and Tables
@@ -67,6 +69,8 @@
 \usepackage{array}
 \usepackage{rotating}
 \usepackage{float}
+\usepackage{flafter}
+\usepackage{placeins}
 \usepackage{longtable}
 \usepackage{pdflscape}
 
@@ -124,6 +128,14 @@
 
 % Prevent long URLs from running off the page
 \usepackage{xurl}
+
+% ----------------------------
+% Appendix-only Table of Contents
+% ----------------------------
+\usepackage[toc,page,header]{appendix}
+\usepackage{minitoc}
+\renewcommand{\thepart}{}
+\renewcommand{\partname}{}
 
 % ----------------------------
 % Environments
