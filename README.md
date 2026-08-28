@@ -4,6 +4,13 @@ This repository contains my LaTeX template for research articles. It is set up
 for a modular manuscript with separate files for the title page, preamble,
 sections, appendix, figures, and bibliography.
 
+## Public Guide
+
+The public guide explains how to apply the template's writing and formatting
+standards to an existing Overleaf project. It also documents the complete
+reference template. The guide is designed to publish through GitHub Pages at
+<https://yhoriuchi.github.io/latex-research-article-template/>.
+
 ## Compile
 
 Compile `main.tex`.

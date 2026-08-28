@@ -1,0 +1,24 @@
+title: LaTeX Research Article Guide
+description: Apply polished LaTeX writing and formatting standards to an existing Overleaf research article, or use the complete reference template.
+markdown: kramdown
+kramdown:
+  input: GFM
+exclude:
+  - .git/
+  - .github/
+  - _site/
+  - .DS_Store
+  - project_history/
+  - main.pdf
+  - wordcount.tex
+  - "*.aux"
+  - "*.bbl"
+  - "*.blg"
+  - "*.fdb_latexmk"
+  - "*.fls"
+  - "*.log"
+  - "*.maf"
+  - "*.mtc*"
+  - "*.out"
+  - "*.ptc*"
+  - "*.toc"

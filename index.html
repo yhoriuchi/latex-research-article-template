@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="no-referrer">
+    <title>LaTeX Research Article Guide</title>
+    <meta name="description" content="Apply polished LaTeX writing and formatting standards to an existing Overleaf research article, or use the complete reference template.">
+    <link rel="stylesheet" href="assets/site.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <h1>LaTeX Research<br>Article Guide</h1>
+
+        <ul>
+          <li><strong>Author:</strong> Yusaku Horiuchi</li>
+          <li><strong>Affiliation:</strong> Syde P. Deeb Eminent Scholar in Political Science, Florida State University</li>
+          <li><strong>Created:</strong> June 4, 2026</li>
+          <li><strong>Last revised:</strong> August 28, 2026</li>
+        </ul>
+
+        <p><img src="https://hits.sh/yhoriuchi.github.io/latex-research-article-template.svg?label=page%20views" alt="Page views"></p>
+
+        <p>Apply a polished set of LaTeX writing and formatting standards to an existing Overleaf research article. The guide helps an AI agent preserve the manuscript while improving its structure, typography, figures, tables, references, word count, blind-review workflow, and supplementary materials.</p>
+
+        <div class="hero-actions">
+          <button type="button" class="button button-primary" id="copy-apply-instructions">Copy Instructions to Apply the Guide</button>
+          <a class="button" href="APPLY_GUIDE.md">Read the Instructions</a>
+          <span class="copy-status" id="copy-apply-instructions-status" aria-live="polite"></span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button" href="https://github.com/yhoriuchi/latex-research-article-template/archive/refs/heads/main.zip">Download the Template Instead</a>
+          <a class="button" href="https://github.com/yhoriuchi/latex-research-article-template">View on GitHub</a>
+        </div>
+      </section>
+
+      <h2>Apply the Guide to an Existing Article</h2>
+
+      <ol class="workflow">
+        <li><strong>Open the existing Overleaf project in a file-capable AI assistant.</strong> Give the agent access to the complete project, including the main file, preamble, sections, appendix, bibliography, figures, tables, and journal instructions.</li>
+        <li><strong>Copy the application instructions.</strong> Click the primary button above and paste the copied text into the agent working on the manuscript.</li>
+        <li><strong>Let the agent inspect before editing.</strong> The instructions require it to preserve substantive content and working project infrastructure, identify conflicts, and apply only compatible improvements.</li>
+        <li><strong>Review the compiled result.</strong> Require a clean build, visual PDF inspection, a precise file-change summary, and an explanation of any guide rule that was not applied.</li>
+      </ol>
+
+      <blockquote><p>Most users should apply the guide to their existing project. Download the complete template only when starting a new article or when a project needs a clean replacement scaffold.</p></blockquote>
+
+      <section class="summary-grid">
+        <div class="summary-card">
+          <h2>What the Guide Applies</h2>
+          <ul>
+            <li>Modular manuscript, figure, table, and appendix structure.</li>
+            <li>Consistent labels, references, punctuation, and semantic typography.</li>
+            <li>Publication-ready figure and table placement, captions, notes, and sizing.</li>
+            <li>Automatic main-text word counting when compatible.</li>
+            <li>Blind-review and supplementary-material workflows.</li>
+            <li>Clean compilation and visual PDF verification.</li>
+          </ul>
+        </div>
+
+        <div class="summary-card">
+          <h2>Formatting Defaults</h2>
+          <ul>
+            <li>12-point article text with polished microtypography.</li>
+            <li>One-inch margins and publication-friendly line spacing.</li>
+            <li>Top-placed figures with concise captions and notes.</li>
+            <li>Explicit, nonbreaking figure, table, section, and equation references.</li>
+            <li>Supplementary pages labeled A1, A2, and so forth.</li>
+            <li>Section-based appendix table and figure numbers such as A.1 and B.1.</li>
+          </ul>
+        </div>
+      </section>
+
+      <h2>Use the Complete Template When Appropriate</h2>
+
+      <p>The repository also provides a working reference implementation. Use it as a new-project scaffold, a source of compatible LaTeX infrastructure, or a concrete example when adapting an existing manuscript. The sections below document that implementation.</p>
+
+      <h2>Project Structure</h2>
+
+      <pre><code>latex-research-article-template/
+├── main.tex
+├── preamble.tex
+├── titlepage.tex
+├── sections/
+├── appendix/
+├── figures/
+├── bibfiles/
+└── latexmkrc</code></pre>
+
+      <p>The main file assembles the article. Global packages and formatting live in <code>preamble.tex</code>; author information and the abstract live in <code>titlepage.tex</code>; main-text sections, supplementary sections, figures, and bibliography files stay in their own directories.</p>
+
+      <h2>Compile the Article</h2>
+
+      <p>The project is configured for <code>latexmk</code>, which handles the repeated LaTeX and BibTeX passes required for citations, references, and the supplementary-materials contents.</p>
+
+      <pre><code>latexmk main.tex</code></pre>
+
+      <p>To remove generated auxiliary files while preserving the source files, run:</p>
+
+      <pre><code>latexmk -c main.tex</code></pre>
+
+      <p>On Overleaf, set <code>main.tex</code> as the main document and compile normally.</p>
+
+      <h2>Automatic Word Count</h2>
+
+      <p>Before each local PDF build, <code>latexmkrc</code> runs TeXcount and writes the result to <code>wordcount.tex</code>. The title page displays that value automatically.</p>
+
+      <p>The reported count excludes:</p>
+      <ul>
+        <li>the title page and abstract metadata;</li>
+        <li>the main bibliography; and</li>
+        <li>all supplementary materials, including the appendix bibliography.</li>
+      </ul>
+      <p>The exclusion boundaries are already marked in <code>main.tex</code>, so no manual recount is required after ordinary edits.</p>
+
+      <h2>Figures and Tables</h2>
+
+      <p>Keep every figure or table in its own <code>.tex</code> wrapper. A figure PDF and its wrapper use the same filename stem and stay together in <code>figures/</code>.</p>
+
+      <pre><code>figures/sample_flowchart.pdf
+figures/sample_flowchart.tex</code></pre>
+
+      <p>Reference each float before inserting it, and keep the reference and <code>\input{}</code> together so the prose continues as one paragraph.</p>
+
+      <pre><code>The design proceeds in four stages (see Figure~\ref{fig:sampleflowchart}).\input{figures/sample_flowchart.tex} The next sentence continues the paragraph.</code></pre>
+
+      <p>Figure captions appear below graphics; table captions appear above tables. Extended definitions, coding details, and uncertainty information belong in notes rather than in the plotted graphic.</p>
+
+      <h2>Supplementary Materials</h2>
+
+      <p>The appendix begins with a centered supplementary-materials title and a native appendix-only table of contents. Appendix sections are lettered A, B, and so forth; subsections appear as A.1, A.2, and so forth.</p>
+
+      <p>Supplementary materials are single-spaced, including footnotes. Their pages use A-prefixed labels, and tables and figures are numbered within appendix sections. Appendix-only citations use the separate bibliography commands already configured in the template.</p>
+
+      <h2>Blind Review</h2>
+
+      <p>Set the switch near the top of <code>preamble.tex</code>:</p>
+
+      <pre><code>\newcommand{\blind}{1}</code></pre>
+
+      <p>Use <code>1</code> for the blind version and <code>0</code> for the author-identifying version. In blind mode, the title page omits author information and displays the automatic word count.</p>
+
+      <h2>Adapt Without Rebuilding the Infrastructure</h2>
+
+      <ul>
+        <li>Replace the sample metadata in <code>titlepage.tex</code>.</li>
+        <li>Replace the sample prose in the numbered files under <code>sections/</code>.</li>
+        <li>Add or remove section inputs in <code>main.tex</code> as needed.</li>
+        <li>Add bibliography records to <code>bibfiles/main.bib</code> and cite them with <code>natbib</code> commands.</li>
+        <li>Add supplementary sections through <code>appendix/appendix.tex</code>.</li>
+        <li>Preserve the citation, bibliography, word-count, and appendix setup unless the target journal requires a change.</li>
+      </ul>
+
+      <blockquote><p>Always follow the target journal's current submission requirements when they differ from the template defaults.</p></blockquote>
+
+      <h2>Related Guides</h2>
+
+      <ul>
+        <li><a href="https://yhoriuchi.github.io/bibtex-cleaning-agent-guide/">BibTeX Cleaning Agent Guide</a> for source-backed bibliography cleanup.</li>
+        <li><a href="https://yhoriuchi.github.io/qsf-audit-agent-guide/">QSF Audit Agent Guide</a> for pre-fielding audits of Qualtrics survey files.</li>
+        <li><a href="https://yhoriuchi.github.io/replication-package-guide/">AI-Assisted Research Project Management and Replication Guide</a> for organizing a research workspace and preparing a replication package.</li>
+        <li><a href="https://yhoriuchi.github.io/ai-collaboration-guide/">Guide to Recording AI Use</a> for maintaining a durable record of substantive AI-assisted work.</li>
+      </ul>
+    </main>
+  </body>
+</html>
