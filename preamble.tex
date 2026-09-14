@@ -69,8 +69,15 @@
 \usepackage{array}
 \usepackage{rotating}
 \usepackage{float}
-\usepackage{flafter}
-\usepackage{placeins}
+\usepackage{flafter} % Keep floats after their position in the source.
+\usepackage{placeins} % Provides \FloatBarrier for important boundaries.
+
+% Align float-only pages at the top of the text area.
+% This does not change placement rules on pages that also contain text.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
 \usepackage{longtable}
 \usepackage{pdflscape}
 
@@ -116,8 +123,7 @@
 % For drafting (colored links):
 \usepackage{hyperref}
 
-% For submission (black links / no colors), comment out above and use:
-% \usepackage[draft]{hyperref}
+% To disable hyperlinks entirely, use the draft option when loading hyperref.
 
 \hypersetup{
     colorlinks=true,
@@ -125,6 +131,10 @@
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
 }
+
+% For submission, uncomment AFTER the colored settings to retain clickable
+% links without colored text or borders (subject to journal requirements).
+% \hypersetup{hidelinks}
 
 % Prevent long URLs from running off the page
 \usepackage{xurl}

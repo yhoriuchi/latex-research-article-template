@@ -55,6 +55,18 @@ latexmk -c main.tex
 - Add references to `bibfiles/main.bib` and cite them with `natbib` commands
   such as `\citet{...}` and `\citep{...}`.
 
+## Float Pages and Submission Links
+
+Pages containing only figures or tables start their first float at the top of
+the text area, using `\setlength{\@fptop}{0pt}` in `preamble.tex`. This setting
+does not change `[!t]` placement on pages containing manuscript text. With
+multiple floats, the space between them may still stretch.
+
+For uncolored, borderless links that remain clickable, uncomment
+`\hypersetup{hidelinks}` after the colored-link settings in `preamble.tex`.
+The `draft` option to `hyperref` instead disables hyperlinks. Follow the
+target journal's requirements when choosing a submission setting.
+
 ## Word Count
 
 The word count is generated automatically by `latexmk` using `texcount`.
