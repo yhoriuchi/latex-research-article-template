@@ -110,9 +110,17 @@
 \usepackage[comma,authoryear, sort&compress]{natbib}
 \bibpunct{(}{)}{,}{a}{}{,}
 
-% Separate bibliography for appendix citations.
+%% Make separate References for Supporting Information and Response Memo
+% Load warning filters before multibib: \newcites reads existing auxiliary
+% files immediately, so later filters cannot catch its repeated-key warnings.
+\usepackage{silence}
+\WarningFilter{natbib}{Citation}
+\WarningFilter{natbib}{There were multiply defined citations}
+\WarningFilter{latex}{Text page}
 \usepackage{multibib}
-\newcites{appendix}{References}
+\newcites{appendix}{References for Appendix}
+\newcites{memo}{References for Response Memo}
+\newcites{transfer}{References for Detailed Revision Memo}
 
 % Custom citation helper
 \newcommand\cites[1]{\citeauthor{#1}'s\ (\citeyear{#1})}
